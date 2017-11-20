@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cameraController : MonoBehaviour {
+public class CameraControls : MonoBehaviour {
 
     [SerializeField]
     Transform objectToFollow;
@@ -18,18 +18,18 @@ public class cameraController : MonoBehaviour {
 
     float zOffset;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
         zOffset = transform.position.z;
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         Vector3 playerPosition = new Vector3(objectToFollow.position.x + xOffset, objectToFollow.position.y + yOffset, zOffset);
         Vector3 adjustedPosition = Vector3.Lerp(transform.position, playerPosition, cameraSpeed * Time.deltaTime);
 
         transform.position = adjustedPosition;
-	}
+    }
 }

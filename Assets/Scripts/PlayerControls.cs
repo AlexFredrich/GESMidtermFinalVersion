@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerController : MonoBehaviour {
-#region Serialize Fields
+public class PlayerControls : MonoBehaviour {
+
+    #region Serialize Fields
     [SerializeField]
     private float playerSpeed = 5f;
 
@@ -18,7 +19,7 @@ public class playerController : MonoBehaviour {
 
     [SerializeField]
     private LayerMask whatIsGround;
-#endregion
+    #endregion
 
     #region private variables
     private Rigidbody2D playerRidgidBody2D;
@@ -28,28 +29,28 @@ public class playerController : MonoBehaviour {
     private bool pressedJump;
     private float move;
     private AudioSource audioSource;
-#endregion
+    #endregion
 
 
 
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         playerRidgidBody2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
     }
-	
+
     private void UpdateIsOnGround()
     {
-        Collider2D [] groundColliders = Physics2D.OverlapCircleAll(groundCheck.position, groundRadius, whatIsGround);
+        Collider2D[] groundColliders = Physics2D.OverlapCircleAll(groundCheck.position, groundRadius, whatIsGround);
         grounded = groundColliders.Length > 0;
     }
-	// Update is called once per frame
-	void FixedUpdate ()
+    // Update is called once per frame
+    void FixedUpdate()
     {
-        HandleJump();
+
         HandlePlayerMovement();
 
         anim.SetBool("Ground", grounded);
@@ -68,6 +69,7 @@ public class playerController : MonoBehaviour {
         UpdateIsOnGround();
         GetJumpInput();
         GetMovementInput();
+        HandleJump();
 
     }
 
@@ -103,4 +105,5 @@ public class playerController : MonoBehaviour {
     {
         playerRidgidBody2D.velocity = new Vector2(move * playerSpeed, playerRidgidBody2D.velocity.y);
     }
+
 }
