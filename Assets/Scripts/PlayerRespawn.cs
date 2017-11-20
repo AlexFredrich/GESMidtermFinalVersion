@@ -4,10 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerRespawn : MonoBehaviour {
-
-public void Respawn()
+ 
+    public void Start()
     {
-        if(Checkpoint.currentCheckpoint != null)
+        
+    }
+
+    public void Respawn()
+    {
+
+        if (Checkpoint.currentCheckpoint != null)
         {
             gameObject.transform.position = Checkpoint.currentCheckpoint.transform.position;
         }
@@ -16,4 +22,9 @@ public void Respawn()
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
+
+
+
 }
+
+

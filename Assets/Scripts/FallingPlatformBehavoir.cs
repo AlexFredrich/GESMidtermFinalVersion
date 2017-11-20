@@ -21,6 +21,7 @@ public class FallingPlatformBehavoir : MonoBehaviour {
         if (col.collider.CompareTag("Player"))
         {
             StartCoroutine(Fall(fallDelay));
+            rb2D.bodyType = RigidbodyType2D.Kinematic;
         }
         else
         {

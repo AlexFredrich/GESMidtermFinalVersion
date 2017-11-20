@@ -31,7 +31,7 @@ public class PowerUpBehavior : MonoBehaviour {
         circleCollider2D.enabled = false;
         spriteRenderer.enabled = false;
         playerSpecial.enabled = true;
-        UIScreen.GetComponent<Text>().text = "Hold 'ctrl' to faze through certain material. \nUse your power to escape.";
+        UIScreen.GetComponent<Text>().text = "Hold 'ctrl' or 'left mouse button' to faze through certain material. \nUse your power to escape.";
 
         Destroy(gameObject);
     }
