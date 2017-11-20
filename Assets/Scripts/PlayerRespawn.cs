@@ -5,10 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerRespawn : MonoBehaviour {
  
-    public void Start()
-    {
-        
-    }
 
     public void Respawn()
     {

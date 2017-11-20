@@ -32,9 +32,6 @@ public class PlayerControls : MonoBehaviour {
     #endregion
 
 
-
-
-    // Use this for initialization
     void Start()
     {
         playerRidgidBody2D = GetComponent<Rigidbody2D>();
@@ -47,7 +44,7 @@ public class PlayerControls : MonoBehaviour {
         Collider2D[] groundColliders = Physics2D.OverlapCircleAll(groundCheck.position, groundRadius, whatIsGround);
         grounded = groundColliders.Length > 0;
     }
-    // Update is called once per frame
+    
     void FixedUpdate()
     {
 
@@ -90,7 +87,6 @@ public class PlayerControls : MonoBehaviour {
         if (pressedJump && grounded)
         {
             anim.SetBool("Ground", false);
-            //playerRidgidBody2D.AddForce(new Vector2(0, playerJumpHeight));
             playerRidgidBody2D.velocity = new Vector2(playerRidgidBody2D.velocity.x, playerJumpHeight);
             audioSource.Play();
         }
